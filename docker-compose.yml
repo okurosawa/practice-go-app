@@ -1,0 +1,16 @@
+
+version: "3.8"
+
+services:
+  app:
+    container_name: 'app'
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: dev
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./src:/go/src/app
+    ports:
+      - 8080:8080
